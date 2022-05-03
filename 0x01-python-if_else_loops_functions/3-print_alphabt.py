@@ -2,6 +2,6 @@
 import string
 for letter in string.ascii_lowercase:
     if letter == 'e' or letter == 'q':
-	continue
+        continue
     else:
-	print(letter, end="")
+        print(letter, end="")
