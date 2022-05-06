@@ -9,14 +9,13 @@ if __name__ == "__main__":
 
     a = int(argv[1])
     b = int(argv[3])
-
     if argv[2] == '+':
         print("{} + {} = {}".format(argv[1], argv[3], add(a, b)))
     elif argv[2] == '-':
         print("{} - {} = {}".format(argv[1], argv[3], sub(a, b)))
     elif argv[2] == '*':
         print("{} * {} = {}".format(argv[1], argv[3], mul(a, b)))
-    elif argv [2] == '/':
+    elif argv[2] == '/':
         print("{} / {} = {}".format(argv[1], argv[3], div(a, b)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
