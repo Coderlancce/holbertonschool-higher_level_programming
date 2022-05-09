@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include "lists.h"
 
 /**
@@ -43,9 +44,8 @@ int is_palindrome(listint_t **head)
 listint_t *reverse_listint(listint_t **head)
 {
 
-	listint_t *prev, *next;
+	listint_t *prev = NULL, *next;
 
-	prev = NULL;
 	while (*head != NULL)
 	{
 		next = (*head)->next;
