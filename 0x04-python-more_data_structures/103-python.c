@@ -2,6 +2,13 @@
 #include <object.h>
 #include <listobject.h>
 
+/**
+ * print_python_list_info - print info at python
+ * @p: pointer to sources
+ *
+ * Return: none, void func
+ */
+
 void print_python_list_info(PyObject *p)
 {
 	int i;
