@@ -7,6 +7,6 @@ def safe_print_list(my_list=[], x=0):
             counterr += 1
         print("")
         return x
-    except indexError:
+    except safe_print_list_error:
         print("")
         return counterr
