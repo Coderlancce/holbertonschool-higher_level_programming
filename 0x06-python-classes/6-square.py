@@ -7,50 +7,46 @@ class Square:
 
     def __init__(self, size=0, position=(0, 0)):
         """Module __init__ for size square validation"""
-        self.size = size
-        self.position = position
+        if type(size) not is int:
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        self._Square__size = size
+
+        if type(position) != tuple or \
+           not all(type(x) == int for x in position) or \
+           not all(x >= 0 for x in position) or \
+           len(position) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self._Square__position = position
+
+    def area(self):
+        """ return the current square area """
+        return self._Square__size ** 2
 
     @property
     def size(self):
-        """Method property of size and return the size"""
-        return (self.__size)
+        """ retrieve the size of Square obj """
+        return self._Square__size
 
     @size.setter
     def size(self, value):
-        """Method size_setter atributte evaluate the value"""
-        if type(value) != int:
-            raise TypeError("size must be an integer")
-        elif value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = value
+        """ set the size of Square obj """
+        self.__init__(value, self.position)
+
+    def my_print(self):
+        """ draw in stdout the square with the character # """
+        [print() for x in range(self.position[1])]
+        print("\n".join(["".join(([" "] * self.position[0]) +
+                                 ["#" for x in range(self.size)])
+                         for y in range(self.size)]))
 
     @property
     def position(self):
-        """Method position return the position"""
-        return (self.__position)
+        """ retrieve the position of Square obj """
+        return self._Square__position
 
     @position.setter
     def position(self, value):
-        """Method position setter evalue the errors"""
-        if (type(value) != tuple or len(value) != 2 or type(value[0]) != int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        elif (type(value[1]) != int or value[0] < 0 or value[1] < 0):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
-
-    def area(self):
-        """Method area return the square Area"""
-        return self.__size ** 2
-
-    def my_print(self):
-        """Method my_print print a square"""
-        if self.__size > 0:
-            for x in range(self.position[1]):
-                print("")
-            for x in range(self.__size):
-                for y in range(self.__position[0]):
-                    print(" ", end="")
-                for y in range(self.__size):
-                    print("#", end="")
-                print("")
-        print("")
+        """ set the position of Square obj """
+        self.__init__(self.size, value)
