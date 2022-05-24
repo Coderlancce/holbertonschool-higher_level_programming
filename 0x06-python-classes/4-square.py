@@ -11,7 +11,8 @@ class Square:
             raise TypeError("size mustbe an integrer")
         elif size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        else:
+            self.__size = size
 
     def area(self):
         """Method area return the square Area"""
@@ -29,4 +30,5 @@ class Square:
             raise TypeError("size must be an integrer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        else:
+            self.__size = value
