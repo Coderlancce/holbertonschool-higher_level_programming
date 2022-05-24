@@ -7,8 +7,8 @@ class Square:
 
     def __init__(self, size=0):
         """Module __init__ for size square validation"""
-            self.size = size
-            
+        self.size = size
+
     @property
     def size(self):
         """Method property of size and return the size"""
