@@ -7,17 +7,8 @@ class Square:
 
     def __init__(self, size=0):
         """Module __init__ for size square validation"""
-        if type(size) is not int:
-            raise TypeError("size mustbe an integrer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
-
-    def area(self):
-        """Method area return the square Area"""
-        return(self.__size ** 2)
-
+            self.size = size
+            
     @property
     def size(self):
         """Method property of size and return the size"""
@@ -30,5 +21,7 @@ class Square:
             raise TypeError("size must be an integrer")
         elif value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
+
+    def area(self):
+        return self.__size ** 2
