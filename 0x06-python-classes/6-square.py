@@ -18,16 +18,16 @@ class Square:
            not all(x >= 0 for x in position) or \
            len(position) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
-        self._Square__position = position
+        self.__position = position
 
     def area(self):
         """ return the current square area """
-        return self._Square__size ** 2
+        return self.__size ** 2
 
     @property
     def size(self):
         """ retrieve the size of Square obj """
-        return self._Square__size
+        return self.__size
 
     @size.setter
     def size(self, value):
