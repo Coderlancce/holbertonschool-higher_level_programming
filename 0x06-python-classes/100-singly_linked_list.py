@@ -60,11 +60,11 @@ class SinglyLinkedList:
         else:
             self.head = new
 
-        def __str__(self):
-            """ format to print all node data's """
-            current = self.head
-            buff = []
-            while current:
-                buff.append(current.data)
-                current = current.next_node
-            return "\n".join([str(x) for x in buff])
+    def __str__(self):
+        """ format to print all node data's """
+        current = self.head
+        buff = []
+        while current:
+            buff.append(current.data)
+            current = current.next_node
+        return "\n".join([str(x) for x in buff])
