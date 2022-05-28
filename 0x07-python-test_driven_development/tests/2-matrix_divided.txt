@@ -1,0 +1,305 @@
+=====================================================================
+	Document test for 1 task divede 2 integers at matrix
+=====================================================================
+
+
+``def matrix_divided(matrix, div)``
+
+This function divide (/) two inputs of the "matrix" elements
+and "div" should be int or float type, otherwise this function
+will saise a TypeError with a respective message, if not problem
+found return the result
+
+To see how it works let's import the function from his module first:
+=====================================================================
+
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+
+And now we check cases where it works:
+======================================
+
+- Integers
+
+	>>> matrix_divided([[2, 3, 5], [3, 5, 1]], 2)
+	[[1.0, 1.5, 2.5], [1.5, 2.5, 0.5]]
+
+	>>> matrix_divided([[-5, -34], [-12, 0]], 5)
+	[[-1.0, -6.8], [-2.4, 0.0]]
+
+- Floats
+
+	>>> matrix_divided([[4.3, 0.8], [1.2, 2.0]], 1.5)
+	[[2.87, 0.53], [0.8, 1.33]]
+
+	>>> matrix_divided([[-3.4], [-1.7]], 0.7)
+	[[-4.86], [-2.43]]
+
+- Integers and Floats
+
+  	>>> matrix_divided([[-4.5, 3], [4, 0.75]], -3.7)
+	[[1.22, -0.81], [-1.08, -0.2]]
+
+	>>> matrix_divided([[4.5, 3], [4, 0.75]], 2)
+	[[2.25, 1.5], [2.0, 0.38]]
+
+- A lot of decimals
+
+    	>>> matrix_divided([[-4.545, 3.290], [4.4432, 0.7535]], 3.0007)
+	[[-1.51, 1.1], [1.48, 0.25]]
+
+
+Now let's check the edge cases:
+===============================
+
+
+Type errors
+===========
+
+-Strings
+
+	>>> matrix_divided([[-4.545, 3.290], [4.4432, 0.7535]], "3.0007")
+	Traceback (most recent call last):
+	    ...
+	TypeError: div must be a number
+
+	>>> matrix_divided([["-4.545", 3.290], [4.4432, 0.7535]], 3.0007)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[-4.545, 3.290], "34"], 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided(["Holberton"], 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided("Holberton", 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+- Dictionaries
+
+	>>> matrix_divided([[-4.545, 3.290], [4.4432, 0.7535]], {"key": 3})
+	Traceback (most recent call last):
+	    ...
+	TypeError: div must be a number
+
+	>>> matrix_divided([{"key1": -4.545, "key2": 3.290}, [4.4432, 0.7535]], 3.0007)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[-4.545, 3.290], {"key1": 34, "key2": 5}], 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided({"Key": 23}, 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided({"h1": {"k1": 3, "k2": 2.1}, "h2": {"k1": 4, "k2": 1}}, 2)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+- Tuples
+
+	>>> matrix_divided([[-4.545, 3.290], [4.4432, 0.7535]], (3,))
+	Traceback (most recent call last):
+	    ...
+	TypeError: div must be a number
+
+	>>> matrix_divided([(-4.545, 3.290), [4.4432, 0.7535]], 3.0007)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[-4.545, 3.290], (34, 5)], 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided((23, 4), 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided(((3, 2.1), (4, 1)), 2)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+- Sets
+
+	>>> matrix_divided([[-4.545, 3.290], [4.4432, 0.7535]], {3})
+	Traceback (most recent call last):
+	    ...
+	TypeError: div must be a number
+
+	>>> matrix_divided([{-4.545, 3.290}, [4.4432, 0.7535]], 3.0007)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[-4.545, 3.290], {34, 5}], 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided({23, 4}, 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided({{3, 2.1}, {4, 1}}, 2)
+	Traceback (most recent call last):
+	    ...
+	TypeError: unhashable type: 'set'
+
+- Lists
+
+	>>> matrix_divided([[-4.545, 3.290], [4.4432, 0.7535]], [3])
+	Traceback (most recent call last):
+	    ...
+	TypeError: div must be a number
+
+	>>> matrix_divided([-4.545, 3.290, [4.4432, 0.7535]], 3.0007)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[-4.545, 3.290], [5]], 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: Each row of the matrix must have the same size
+
+	>>> matrix_divided([23, 4], 3)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+- Integers
+
+	>>> matrix_divided(4, 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([4], 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+- Floats
+
+	>>> matrix_divided(4.3, 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([0.4], 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+- None
+
+	>>> matrix_divided(None, 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[None, 6], [2, 5]], 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([None], 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[1], [None]], 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[4], [2]], None)
+	Traceback (most recent call last):
+	    ...
+	TypeError: div must be a number
+
+- Boolean
+
+	>>> matrix_divided(True, 6)
+	Traceback (most recent call last):
+	   ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[False, 6], [2, 5]], 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([True], 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[1], [False]], 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[4, 3.0], [2, 4]], True)
+	Traceback (most recent call last):
+	    ...
+	TypeError: div must be a number
+
+
+Cast Cases
+==========
+
+- Inf Float
+
+	>>> matrix_divided([[3, 4], [3.6, 8]], float("inf"))
+	[[0.0, 0.0], [0.0, 0.0]]
+
+- Nan Float
+
+	>>> matrix_divided([[3, 4], [3.6, 8]], float("nan"))
+	[[nan, nan], [nan, nan]]
+
+
+Empty Input
+===========
+
+- No given parameters
+
+     	>>> matrix_divided(, 5)
+	Traceback (most recent call last):
+	    ...
+	SyntaxError: invalid syntax
+
+	>>> matrix_divided([[4, 7], [2, 5]], )
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+	>>> matrix_divided([[4], 2, [[5], 7]], 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([[], []], 6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
