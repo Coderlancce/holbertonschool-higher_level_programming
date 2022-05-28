@@ -1,0 +1,221 @@
+===============================================================
+	Document test for 2 task write a complete name
+===============================================================
+
+
+´´def say_my_name(first_name, last_name=""):´´
+
+This functios prints a complete name (first_name and last_name)
+his inputs should be of type str and dont have numbers,
+otherwise this function will raise a TypeError with respective
+message.
+
+
+To see how it works let's import the function from his module first:
+====================================================================
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+And now we check cases where it works:
+======================================
+
+- Strings
+
+	>>> say_my_name("Leonardo", "Cumaco")
+	My name is Leonardo Cumaco
+
+	>>> say_my_name("Alcachofas")
+	My name is Alcachofas 
+
+	>>> say_my_name("", "Delvacio")
+	My name is  Delvacio
+
+	>>> say_my_name("")
+	My name is  
+
+
+Now let's check the edge cases:
+===============================
+
+
+Type errors
+===========
+
+- Lists
+
+	>>> say_my_name(["Pepito"])
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name(["Pepito"], "Perez")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Pepito", ["Perez"])
+	Traceback (most recent call last):
+	    ...
+	TypeError: last_name must be a string
+
+	>>> say_my_name(["pepito", "perez"])
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name(["32", "21"])
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+- Dictionaries
+
+	>>> say_my_name({"k1": "Pepito"})
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name({"k1": "Pepito"}, "Perez")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Pepito", {"k1": "Perez"})
+	Traceback (most recent call last):
+	    ...
+	TypeError: last_name must be a string
+
+	>>> say_my_name({"k1": "pepito", "k2": "perez"})
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+- Tuples
+
+	>>> say_my_name(("Pepito",))
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name(("Pepito",), "Perez")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Pepito", ("Perez",))
+	Traceback (most recent call last):
+	    ...
+	TypeError: last_name must be a string
+
+	>>> say_my_name(("pepito", "perez"))
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name(("32", "21"))
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+- Sets
+
+	>>> say_my_name({"Pepito"})
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name({"Pepito"}, "Perez")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+	
+	>>> say_my_name({"pepito", "perez"})
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name({"32", "21"})
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+- Numbers
+
+	>>> say_my_name(98, "pepe")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Pepito", 34.6)
+	Traceback (most recent call last):
+	    ...
+	TypeError: last_name must be a string
+
+	>>> say_my_name(-4.7, "pepe")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name(98j, "pepe")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name(float("inf"), "pepe")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Pepito", float("nan"))
+	Traceback (most recent call last):
+	    ...
+	TypeError: last_name must be a string
+
+- String numbers
+
+  	 >>> say_my_name(str("32"), "pepe")
+	 Traceback (most recent call last):
+	     ...
+	 TypeError: first_name must be a string, no numbers
+
+	 >>> say_my_name("pepe", str("21"))
+	 Traceback (most recent call last):
+	     ...
+	 TypeError: last_name must be a string, no numbers
+
+	 >>> say_my_name(str("32"), str("21"))
+	 Traceback (most recent call last):
+	     ...
+	 TypeError: first_name must be a string, no numbers
+
+	 >>> say_my_name(str("32"))
+	 Traceback (most recent call last):
+	     ...
+	 TypeError: first_name must be a string, no numbers
+
+- None
+
+	>>> say_my_name(None, "pepe")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+- Boolean
+
+	>>> say_my_name(True, "pepe")
+	Traceback (most recent call last):
+	    ...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Pepito", False)
+	Traceback (most recent call last):
+	    ...
+	TypeError: last_name must be a string
+
+- Empty
+
+	>>> say_my_name()
+	Traceback (most recent call last):
+	    ...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
