@@ -1,0 +1,131 @@
+========================================================
+	Doctests for text_indentation function
+========================================================
+
+
+``def text_indentation(text)``
+
+This function replace and prints a given input (text),
+his inputs should be of type str, otherwise
+this function will raise a TypeError with his respective message,
+if not problem is found it will print a sliced text.
+the Characters slicers are ".", "?" and ":".
+
+
+To see how it works let's import the function from his module first:
+====================================================================
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+And now we check cases where it works:
+======================================
+
+- Strings
+
+	>>> text_indentation("pepe.papas")
+	pepe.
+	<BLANKLINE>
+	papas
+
+	>>> text_indentation("   Pepe  \n papas ")
+	Pepe
+	papas
+
+	>>> text_indentation("pepe?  ok. \n   ")
+	pepe?
+	<BLANKLINE>
+	ok.
+	<BLANKLINE>
+	<BLANKLINE>
+
+	>>> text_indentation("holberton:98:school")
+	holberton:
+	<BLANKLINE>
+	98:
+	<BLANKLINE>
+	school
+
+
+Now let's check the edge cases:
+===============================
+
+
+Type errors
+===========
+
+- Lists
+
+	>>> text_indentation(["pepe.papas"])
+	Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+- Dictionaries
+
+	>>> text_indentation({"key": "pepe.papas"})
+	Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+- Tuples
+
+	>>> text_indentation(("pepe.papas",))
+	Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+- Sets
+
+	>>> text_indentation({"pepe.papas"})
+	Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+- Integers, floats and complex
+
+  	>>> text_indentation(12)
+	Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+    	>>> text_indentation(-1.9)
+        Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+    	>>> text_indentation(3j)
+        Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+    	>>> text_indentation(float("inf"))
+        Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+    	>>> text_indentation(float("nan"))
+        Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+- None
+
+	>>> text_indentation(None)
+        Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+- Boolean
+
+	>>> text_indentation(False)
+        Traceback (most recent call last):
+	    ...
+	TypeError: text must be a string
+
+- Empty
+
+	>>> text_indentation()
+        Traceback (most recent call last):
+	    ...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
