@@ -50,3 +50,22 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return 0
         return (self.width + self.height) * 2
+
+# write Rectangle
+
+    def __str__(self):
+        """ draw the Rectangule instance """
+        return "\n".join(["#" * self.width] * self.height)
+
+# repr to create a new instance with eval()
+
+    def __repr__(self):
+        """ return a string rep, of instance """
+        className = self.__class__.__name__
+        return "{}({}, {})".format(className, self.width, self.height)
+
+# delet behavior control
+
+    def __del__(self):
+        """ print a message after instance delete """
+        print("Bye rectangle...")
