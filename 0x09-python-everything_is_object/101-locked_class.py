@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Write a class LockedClass with no class or object attribute
+"""
+
+
 class LockedClass:
     """
     with no class or object attribute, that prevents the user
