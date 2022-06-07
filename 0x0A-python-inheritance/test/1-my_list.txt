@@ -1,0 +1,52 @@
+====================================
+	Test of the 1 task
+====================================
+
+
+´´def print_sorted(self)´´
+
+The function print in order all elements of a list
+the supposition is all elements are type int
+
+Remember, you are not allowed to import any module
+
+
+To see how it works let's import the function from his module first:
+====================================================================
+
+	>>> MyList = __import__('1-my_list').MyList
+
+
+Check cases where it works:
+===========================
+
+-Positives
+
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> my_list.append(3)
+	>>> my_list.append(5)
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+
+- Negatives
+
+	>>> my_list = MyList()
+    	>>> my_list.append(-1)
+        >>> my_list.append(-4)
+	>>> my_list.append(-2)
+	>>> my_list.append(-3)
+	>>> my_list.append(-5)
+	>>> print(my_list)
+	[-1, -4, -2, -3, -5]
+	>>> my_list.print_sorted()
+	[-5, -4, -3, -2, -1]
+	>>> print(my_list)
+	[-1, -4, -2, -3, -5]
+
