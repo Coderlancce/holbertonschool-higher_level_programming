@@ -3,8 +3,6 @@
 ====================================
 
 
-´´def print_sorted(self)´´
-
 The function print in order all elements of a list
 the supposition is all elements are type int
 
