@@ -13,13 +13,16 @@ To see how it works let's import the function from his module first:
 ====================================================================
 
 	>>> MyList = __import__('1-my_list').MyList
-	>>> sizeOfmod = __import__("1-my_list").MyList.print_sorted.__doc__
 
 
 Check cases where it works:
 ===========================
 
 -Positives
+	>>> sizeOfmod = __import__("1-my_list").MyList.print_sorted.__doc__
+    	>>> len(sizeOfmod) > 1
+    	True
+
 
 	>>> my_list = MyList()
 	>>> my_list.append(1)
@@ -48,4 +51,15 @@ Check cases where it works:
 	[-5, -4, -3, -2, -1]
 	>>> print(my_list)
 	[-1, -4, -2, -3, -5]
+
+- Flotas
+
+	>>> my_list = MyList()
+	>>> my_list.append(5.5)
+	>>> my_list.append(4.4)
+	>>> my_list.append(3.3)
+	>>> my_list.append(2.2)
+	>>> my_list.append(1.1)
+	>>> my_list.print_sorted()
+	[1.1, 2.2, 3.3, 4.4, 5.5]
 
