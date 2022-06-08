@@ -13,6 +13,7 @@ To see how it works let's import the function from his module first:
 ====================================================================
 
 	>>> MyList = __import__('1-my_list').MyList
+	>>> sizeOfmod = __import__("1-my_list").MyList.print_sorted.__doc__
 
 
 Check cases where it works:
