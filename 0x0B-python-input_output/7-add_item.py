@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ script that adds all arguments to a Python list,
 and then save them to a file """
-from os import path
-from sys import argv as av
+import os.path
+import sys
 
 
 load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
