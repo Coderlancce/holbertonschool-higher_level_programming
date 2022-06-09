@@ -19,7 +19,7 @@ def pascal_triangle(n):
                 res_list += [prev[p1] + prev[p2]]
             p1 += 1
             p2 += 1
-        matrix.aprrend(res_list)
+        matrix.append(res_list)
         prev = res_list[:]
 
     return matrix
