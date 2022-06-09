@@ -4,6 +4,7 @@ script that adds all arguments to a Python list,
 and then save them to a file
 """
 
+
 from os import path
 from sys import argv as av
 
