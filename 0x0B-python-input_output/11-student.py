@@ -13,23 +13,16 @@ class Student:
 
     def to_json(self):
         """ Method that returns directory description """
-        obj = self.__dict__.copy()
+        answer_list = {}
         if type(attrs) is list:
+            if all(type(i) is str for i in attrs):
+                for item in attrs:
+                    if hasattr(self, item):
+                        answer_list[item] = getattr(self, item)
 
-            for item in attrs:
-                if type(item) is not str:
-                    return obj
-
-            answer_list = {}
-
-            for count_inp in range(len(attrs)):
-                for count_out in obj:
-                    if attrs[count_inp] == count_out:
-                        answer_list[cunt_out] = obj[count_out]
-
-            return answer_list
-
-        return obj
+                return answer_list
+            
+        return self.__dict__
 
     def reload_from_json(self, json):
         """ Replaces all attributes of the Student instance """
