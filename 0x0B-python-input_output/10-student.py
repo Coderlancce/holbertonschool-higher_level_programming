@@ -13,20 +13,14 @@ class Student:
 
     def to_json(self, attrs=None):
         """ Method that returns directory description """
-        obj = self.__dict__.copy()
+        answer_list = {}
         if type(attrs) is list:
 
-            for item in attrs:
-                if type(item) is not str:
-                    return obj
+            if all(type(i) is str for i in attrs):
+                for item in attrs:
+                    if hasattr(self, i):
+                        answer_list[item] = getattr(self, i)
 
-            answer_list = {}
+                return answer_list
 
-            for count_inp in range(len(attrs)):
-                for count_out in obj:
-                    if attrs[count_inp] == count_out:
-                        answer_list[cunt_out] = obj[count_out]
-
-            return answer_list
-
-        return obj
+        return self.__dict__
