@@ -15,11 +15,10 @@ class Student:
         """ Method that returns directory description """
         answer_list = {}
         if type(attrs) is list:
-
             if all(type(i) is str for i in attrs):
                 for item in attrs:
-                    if hasattr(self, i):
-                        answer_list[item] = getattr(self, i)
+                    if hasattr(self, item):
+                        answer_list[item] = getattr(self, item)
 
                 return answer_list
 
