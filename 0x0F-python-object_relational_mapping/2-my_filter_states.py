@@ -17,8 +17,7 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     query = """
-    SELECT states.id, name FROM states WHERE name='{:s}'
-    COLLATE latin1_general_cs
+    SELECT * FROM states WHERE name='{:s}'
     ORDER BY states.id ASC;
     """.format(state_name)
 
