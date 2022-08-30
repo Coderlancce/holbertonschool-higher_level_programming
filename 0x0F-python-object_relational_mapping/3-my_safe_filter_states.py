@@ -17,11 +17,10 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     query = """
-    SELECT * FROM states WHERE BINARY name = %(name)s
-    ORDER BY states.id ASC;
+    SELECT * FROM states WHERE BINARY name = %
     """
 
-    cur.execute(query, (state_name, ))
+    cur.execute(query, (state_name,))
 
     rows = cur.fetchall()
     for row in rows:
