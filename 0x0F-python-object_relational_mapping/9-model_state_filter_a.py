@@ -19,4 +19,3 @@ if __name__ == "__main__":
 
     for record in records:
         print("{:d}: {:s}".format(record.id, record.name))
-
