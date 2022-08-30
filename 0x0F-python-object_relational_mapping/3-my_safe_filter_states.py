@@ -17,7 +17,7 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     query = """
-    SELECT states.id, name FROM states WHERE name = %s
+    SELECT * FROM states WHERE name = %(name)s
     ORDER BY states.id ASC;
     """
 
