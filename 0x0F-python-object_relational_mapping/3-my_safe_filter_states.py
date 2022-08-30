@@ -17,7 +17,7 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     query = """
-    SELECT * FROM states WHERE name = %(name)s
+    SELECT * FROM states WHERE BINARY name = %(name)s
     ORDER BY states.id ASC;
     """
 
