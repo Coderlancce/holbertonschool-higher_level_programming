@@ -1,26 +1,13 @@
 #!/usr/bin/python3
-""" Filter states """
-
-from sys import argv
 import MySQLdb
-
+import sys
 if __name__ == "__main__":
-    username = argv[1]
-    password = argv[2]
-    db_name = argv[3]
-    db = MySQLdb.connect(host="localhost",
-                         port=3306,
-                         user=username,
-                         passwd=password,
-                         db=db_name)
-    cur = db.cursor()
-    cur.execute("SELECT states.id, name FROM states WHERE name "
-                "COLLATE latin1_general_cs "
-                "LIKE 'N%' "
-                "ORDER BY states.id ASC;")
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
 
-    cur.close()
-    db.close()
+    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3])
+    c = db.cursor()
+    c.execute("SELECT * FROM states ORDER BY id")
+    my_states = c.fetchall()
+    for state in my_states:
+        if state[1][0] == 'N':
+            print(state)
