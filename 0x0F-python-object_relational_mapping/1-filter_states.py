@@ -15,7 +15,7 @@ if __name__ == "__main__":
                          db=db_name)
     cur = db.cursor()
     cur.execute("SELECT states.id, name FROM states WHERE name "
-                "LIKE 'N%' "
+                "LIKE BINARY 'N%'"
                 "ORDER BY states.id ASC;")
     rows = cur.fetchall()
     for row in rows:
