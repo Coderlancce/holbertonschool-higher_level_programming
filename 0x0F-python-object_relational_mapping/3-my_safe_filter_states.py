@@ -17,7 +17,7 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     query = """
-    SELECT * FROM states WHERE BINARY name = %
+    SELECT * FROM states WHERE BINARY name = %s
     """
 
     cur.execute(query, (state_name,))
