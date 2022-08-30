@@ -18,7 +18,6 @@ if __name__ == "__main__":
 
     query = """
     SELECT states.id, name FROM states WHERE name = %s
-    COLLATE latin1_general_cs
     ORDER BY states.id ASC;
     """
 
