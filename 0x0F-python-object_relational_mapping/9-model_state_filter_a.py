@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Only First state
+Contains a
 """
 import sys
 from model_state import Base, State
@@ -14,10 +14,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    query = session.query(State)
-    records = query.first()
+    query = session.query(State).filter(State.name.like('%a%'))
+    records = query.all()
 
-    if records:
-        print("{:d}: {:s}".format(records.id, records.name))
-    else:
-        print("Nothing")
+    for record in records:
+        print("{:d}: {:s}".format(record.id, record.name))
+
